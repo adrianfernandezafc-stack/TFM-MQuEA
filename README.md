@@ -3,9 +3,13 @@ This repository contains the replication code and data processing pipelines for 
 The project applies spectral graph theory to the global production network, characterizing its structural vulnerability, community structure, and eigenvector localization across 28 annual cross-sections of the OECD ICIO tables.
 
 **Repository Structure**
+
 data/: Directory for input data (OECD ICIO tables). Note: Raw data files are not included due to size limits.
+
 src/: Python scripts for data processing, spectral calculations, and network analysis.
+
 figures/: Output directory where generated plots and graphs are saved.
+
 requirements.txt: List of dependencies required to run the code.
 
 **Data Source**
