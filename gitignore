@@ -1,0 +1,12 @@
+# ICIO data (licensed, not redistributed)
+data/*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
