@@ -1,23 +1,68 @@
-# TFM-MQuEA Spectral Analysis of the OECD Inter-Country Input-Output System (1995–2022)
-This repository contains the replication code and data processing pipelines for the Master's thesis: "Spectral Analysis of the OECD Inter-Country Input-Output System, 1995–2022" (Master in Quantitative Economic Analysis, UAM). 
-The project applies spectral graph theory to the global production network, characterizing its structural vulnerability, community structure, and eigenvector localization across 28 annual cross-sections of the OECD ICIO tables.
+# Spectral Analysis of the OECD Inter-Country Input-Output System, 1995–2022
 
-**Repository Structure**
+Code for my Master's thesis (TFM), *Master in Quantitative Economic Analysis*, Universidad Autónoma de Madrid.
 
-data/: Directory for input data (OECD ICIO tables). Note: Raw data files are not included due to size limits.
+**Author:** Adrián Fernández Ciruelos · **Supervisor:** Sara Cuenda Cuenda
 
-src/: Python scripts for data processing, spectral calculations, and network analysis.
+We characterise the structural stability and systemic vulnerability of the global production network
+through the full eigenstructure of the Leontief technical coefficients matrix, across 28 annual
+cross-sections (1995–2022) of the OECD Inter-Country Input-Output (ICIO) tables covering 85 countries
+and 50 sectors.
 
-figures/: Output directory where generated plots and graphs are saved.
+## What's here
 
-requirements.txt: List of dependencies required to run the code.
+- [`TFM_Adrian_LIMPIO.ipynb`](./TFM_Adrian_LIMPIO.ipynb) — full analysis pipeline, already executed, organised to mirror Section 4 (Methodology) of the thesis.
+- [`figures/`](./figures) — every figure cited in the thesis, generated directly by the notebook. File names match the `\includegraphics{figures/...}` calls in the LaTeX source one-to-one.
+- `requirements.txt` — Python dependencies.
 
-**Data Source**
-The analysis is based on the OECD Inter-Country Input-Output (ICIO) 2025 edition.
-To replicate the results, you must download the underlying data manually:
+## Data
 
-Visit the OECD ICIO database website. https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html
+This repository does **not** redistribute the OECD ICIO tables (licensing). To reproduce:
 
-Download the files for the 1995–2022 period, 2025 version.
+1. Download the 2025 edition of the Inter-Country Input-Output tables from the [OECD] (https://www.oecd.org/en/data/datasets/inter-country-input-output-tables.html) (free of charge).
+2. Place the yearly files in `data/`, named `ICIO2025_{year}.csv` (e.g. `ICIO2025_1995.csv`, ..., `ICIO2025_2022.csv`).
+3. Update `DATA_DIR` in Section 0 of the notebook to point to that folder.
 
-Extract the contents and place the raw matrices into the data/ folder.
+## Reproducing
+
+```bash
+pip install -r requirements.txt
+jupyter notebook TFM_Adrian_reorganizado_LIMPIO.ipynb
+```
+
+Run top to bottom; each section writes its figures to `figures/`.
+
+## Structure of the notebook
+
+Mirrors Section 4 of the thesis:
+
+| Section | Content | Thesis reference |
+|---|---|---|
+| 1 | Data loading, construction of A | §4.1 |
+| 2 | Leontief viability | §4.2, §5.1 |
+| 3 | Spectral radius ρ(A) | §4.2–4.3, §5.2 |
+| 4 | Stochastic perturbation sensitivity | §4.5, §5.3 |
+| 5 / 5b | Domestic–international decomposition; first-order perturbation (Ψc, δv_c) | §4.8, §5.4–5.5 |
+| 6 | RMT universality breakdown | §4.3, §5.4 |
+| 7 | Shapiro–Wilk normality test | §4.4, §5.13 |
+| 8 | Pseudo-degeneracy M(t), IPR localisation | §4.6–4.7, §5.6 |
+| 9 | Sign structure of secondary eigenvectors | §4.7, §5.7 |
+| 10 | Centrality (eigenvector, node strength, Katz–Bonacich) | §4.9, §5.8 |
+| 11 | Buyer/seller similarity in GVCs | §4.12, §5.9 |
+| 12 | Community detection (Louvain/Leiden) | §4.10, §5.10 |
+| 13 | Country-level Laplacian / Fiedler value | §4.11, §5.11 |
+| 14 | Fragility–regionalisation correlation, Granger test, robustness | §4.13, §5.12–5.13 |
+| 15 | Appendix / abstract exports | — |
+
+
+
+## Citation
+
+If you use this code, please cite:
+
+> Fernández Ciruelos, A. (2026). *Spectral Analysis of the OECD Inter-Country Input-Output System,
+> 1995–2022*. Master's thesis, Universidad Autónoma de Madrid.
+
+## License
+
+Code released under the MIT License. The ICIO dataset itself is © OECD and subject to its own terms of use.
