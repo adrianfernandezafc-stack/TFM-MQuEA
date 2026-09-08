@@ -11,7 +11,7 @@ and 50 sectors.
 
 ## What's here
 
-- [`TFM_Adrian_LIMPIO.ipynb`](./TFM_Adrian_LIMPIO.ipynb) — full analysis pipeline, already executed, organised to mirror Section 4 (Methodology) of the thesis.
+- [`TFM_Adrian_LIMPIO_output.ipynb`](./TFM_Adrian_LIMPIO_output.ipynb) — full analysis pipeline, already executed, organised to mirror Section 4 (Methodology) of the thesis.
 - [`figures/`](./figures) — every figure cited in the thesis, generated directly by the notebook. File names match the `\includegraphics{figures/...}` calls in the LaTeX source one-to-one.
 - `requirements.txt` — Python dependencies.
 
